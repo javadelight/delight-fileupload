@@ -1,7 +1,11 @@
+[![Build Status](https://travis-ci.org/javadelight/delight-fileupload.svg?branch=master)](https://travis-ci.org/javadelight/delight-fileupload)
+
 # delight-fileupload
 
 A simple wrapper for [Apache Commons FileUpload](https://commons.apache.org/proper/commons-fileupload/) for allowing it 
 to work with Netty and other IO servers.
+
+Part of the [Java Delight Suite](http://javadelight.org).
 
 ## Usage
 
