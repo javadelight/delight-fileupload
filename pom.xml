@@ -27,10 +27,11 @@
 		</dependency>
 		
 		<dependency>
-			<groupId>de.mxro.thrd.gwtuser251</groupId>
-			<artifactId>thrdGWTUser251</artifactId>
-			<version>[0.0.1,)</version>
-		</dependency>	
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+			<version>${module.gwtVersion}</version>
+			<scope>provided</scope>
+		</dependency>
 			
 		<dependency>
 			<groupId>org.eclipse.xtend</groupId>
