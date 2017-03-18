@@ -22,9 +22,9 @@ Just add the following dependency to your projects.
 This artifact is available on [Maven Central](https://search.maven.org/#search%7Cga%7C1%7Cdelight-fileupload) and 
 [BinTray](https://bintray.com/javadelight/javadelight/delight-fileupload).
 
-[![Maven Central](https://img.shields.io/maven-central/v/org.javadelight/delight-fileupload.svg)]()
+[![Maven Central](https://img.shields.io/maven-central/v/org.javadelight/delight-fileupload.svg)](https://search.maven.org/#search%7Cga%7C1%7Cdelight-fileupload)
 
-[![Bintray](https://img.shields.io/bintray/v/javadelight/javadelight/delight-fileupload.svg)]()
+[![Bintray](https://img.shields.io/bintray/v/javadelight/javadelight/delight-fileupload.svg)](https://bintray.com/javadelight/javadelight/delight-fileupload)
 
 ## Usage
 
