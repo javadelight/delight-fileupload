@@ -7,6 +7,25 @@ to work with Netty and other IO servers.
 
 Part of the [Java Delight Suite](http://javadelight.org).
 
+## Dependency
+
+Just add the following dependency to your projects.
+
+```
+<dependency>
+    <groupId>org.javadelight</groupId>
+    <artifactId>delight-fileupload</artifactId>
+    <version>[insert latest version]</version>
+</dependency>
+```
+
+This artifact is available on [Maven Central](https://search.maven.org/#search%7Cga%7C1%7Cdelight-fileupload) and 
+[BinTray](https://bintray.com/javadelight/javadelight/delight-fileupload).
+
+[![Maven Central](https://img.shields.io/maven-central/v/org.javadelight/delight-fileupload.svg)]()
+
+[![Bintray](https://img.shields.io/bintray/v/javadelight/javadelight/delight-fileupload.svg)]()
+
 ## Usage
 
 First obtain the raw data of the request in the framework you are using:

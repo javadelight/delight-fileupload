@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<groupId>org.javadelight</groupId>
 	<artifactId>delight-fileupload</artifactId>
-	<version>0.0.2</version>
+	<version>0.0.3</version>
 	<description>A simple wrapper for Apache Commons FileUpload to use it with Netty and other IO servers.</description>
 	<url>https://github.com/javadelight/delight-fileupload</url>
 	<properties>
@@ -19,7 +19,6 @@
 	<!-- Dependent Modules -->
 	<dependencies>
 
-			
 		<dependency>
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
@@ -55,6 +54,37 @@
 	<build>
 
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.4</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+						<configuration>
+							<failOnError>false</failOnError>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
@@ -257,13 +287,16 @@
 
 	</build>
 
-
-	<repositories>
+	
+	<distributionManagement>
 		<repository>
-			<id>Appjangle Releases</id>
-			<url>http://maven.appjangle.com/appjangle/releases</url>
+			<id>bintray-javadelight-javadelight</id>
+			<name>javadelight-javadelight</name>
+			<url>https://api.bintray.com/maven/javadelight/javadelight/delight-fileupload/;publish=1</url>
 		</repository>
-	</repositories>
+	</distributionManagement>
+	
+	
 
 	<developers>
 		<developer>
@@ -277,10 +310,31 @@
 			</roles>
 			<timezone>+10</timezone>
 			<organization>pureleap</organization>
-			<organizationUrl>http://pureleap.com</organizationUrl>
+			<organizationUrl>http://www.pureleap.com</organizationUrl>
 		</developer>
 	</developers>
-
+	
+	<scm>
+		<connection>scm:git:git@github.com:javadelight/delight-fileupload.git</connection>
+		<url>https://github.com/javadelight/delight-fileupload</url>
+		<developerConnection>scm:git:git@github.com:javadelight/delight-fileupload.git
+		</developerConnection>
+	</scm>
+	
+	<licenses>
+		<license>
+			<name>The Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+		</license>
+		<license>
+			<name>GPL</name>
+			<url>https://www.gnu.org/licenses/gpl-3.0.en.html</url>
+		</license>
+	</licenses>
 	
 
 </project>
