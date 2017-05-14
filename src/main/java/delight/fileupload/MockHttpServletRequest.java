@@ -45,7 +45,8 @@ public class MockHttpServletRequest implements HttpServletRequest {
     @Override
     public int read(final byte[] b, final int off, final int len) throws IOException {
       if ((this.readLimit > 0)) {
-        return this.in.read(b, off, Math.min(this.readLimit, len));
+        int _min = Math.min(this.readLimit, len);
+        return this.in.read(b, off, _min);
       }
       return this.in.read(b, off, len);
     }
@@ -323,7 +324,7 @@ public class MockHttpServletRequest implements HttpServletRequest {
       if ((this.length > Integer.MAX_VALUE)) {
         StringConcatenation _builder = new StringConcatenation();
         _builder.append("Value \'");
-        _builder.append(this.length);
+        _builder.append(this.length, "");
         _builder.append("\' is too large to be converted to int");
         String _string = _builder.toString();
         throw new RuntimeException(_string);
