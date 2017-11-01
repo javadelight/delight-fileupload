@@ -16,7 +16,6 @@ package delight.fileupload
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import java.io.BufferedReader
 import java.io.ByteArrayInputStream
 import java.io.IOException
@@ -34,6 +33,11 @@ import javax.servlet.http.Cookie
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpSession
 import org.apache.commons.fileupload.FileUploadBase
+import javax.servlet.http.HttpServletResponse
+import javax.servlet.ServletException
+import javax.servlet.http.HttpUpgradeHandler
+import javax.servlet.ServletResponse
+import javax.servlet.ReadListener
 
 /** 
  * @version $Id$
@@ -471,7 +475,7 @@ class MockHttpServletRequest implements HttpServletRequest {
 		return null
 	}
 
-	private static  class MyServletInputStream extends ServletInputStream {
+	private static class MyServletInputStream extends ServletInputStream {
 		final InputStream in
 		final int readLimit
 
@@ -489,10 +493,83 @@ class MockHttpServletRequest implements HttpServletRequest {
 
 		override int read(byte[] b, int off, int len) throws IOException {
 			if (readLimit > 0) {
-				return in.read(b, off, Math::min(readLimit, len)) 
+				return in.read(b, off, Math::min(readLimit, len))
 			}
-			return in.read(b, off, len) 
+			return in.read(b, off, len)
 		}
-		
+
+		override isFinished() {
+
+			return in.available == 0;
+		}
+
+		override isReady() {
+			return true;
+		}
+
+		override setReadListener(ReadListener arg0) {
+		}
+
 	}
+
+	override authenticate(HttpServletResponse arg0) throws IOException, ServletException {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+
+	override changeSessionId() {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+
+	override getPart(String arg0) throws IOException, ServletException {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+
+	override getParts() throws IOException, ServletException {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+
+	override login(String arg0, String arg1) throws ServletException {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+
+	override logout() throws ServletException {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+
+	override <T extends HttpUpgradeHandler> upgrade(Class<T> arg0) throws IOException, ServletException {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+
+	override getAsyncContext() {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+
+	override getContentLengthLong() {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+
+	override getDispatcherType() {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+
+	override getServletContext() {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+
+	override isAsyncStarted() {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+
+	override isAsyncSupported() {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+
+	override startAsync() throws IllegalStateException {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+
+	override startAsync(ServletRequest arg0, ServletResponse arg1) throws IllegalStateException {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+
 }
