@@ -1,14 +1,15 @@
 package delight.fileupload;
 
 import delight.fileupload.MockHttpServletRequest;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
-import org.apache.commons.fileupload.FileItemIterator;
+import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 
 @SuppressWarnings("all")
 public class FileUpload {
-  public static FileItemIterator parse(final byte[] data, final String contentType) {
+  public static List<FileItem> parse(final byte[] data, final String contentType) {
     try {
       final ServletFileUpload upload = new ServletFileUpload();
       final HttpServletRequest request = new MockHttpServletRequest(data, contentType);
@@ -16,7 +17,7 @@ public class FileUpload {
       if ((!isMultipart)) {
         throw new Exception("Illegal request for uploading files. Multipart request expected.");
       }
-      final FileItemIterator iter = upload.getItemIterator(request);
+      final List<FileItem> iter = upload.parseRequest(request);
       return iter;
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
