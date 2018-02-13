@@ -4,6 +4,8 @@ import delight.fileupload.MockHttpServletRequest;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileItemFactory;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 
@@ -11,7 +13,8 @@ import org.eclipse.xtext.xbase.lib.Exceptions;
 public class FileUpload {
   public static List<FileItem> parse(final byte[] data, final String contentType) {
     try {
-      final ServletFileUpload upload = new ServletFileUpload();
+      final FileItemFactory factory = new DiskFileItemFactory();
+      final ServletFileUpload upload = new ServletFileUpload(factory);
       final HttpServletRequest request = new MockHttpServletRequest(data, contentType);
       final boolean isMultipart = ServletFileUpload.isMultipartContent(request);
       if ((!isMultipart)) {

@@ -3,14 +3,17 @@ package delight.fileupload
 import java.util.List
 import javax.servlet.http.HttpServletRequest
 import org.apache.commons.fileupload.FileItem
-import org.apache.commons.fileupload.FileItemIterator
+import org.apache.commons.fileupload.FileItemFactory
+import org.apache.commons.fileupload.disk.DiskFileItemFactory
 import org.apache.commons.fileupload.servlet.ServletFileUpload
 
 class FileUpload {
 
 	def static List<FileItem> parse(byte[] data, String contentType) {
-
-		val ServletFileUpload upload = new ServletFileUpload();
+		
+		val FileItemFactory factory = new DiskFileItemFactory();
+		
+		val ServletFileUpload upload = new ServletFileUpload(factory);
 		val HttpServletRequest request = new MockHttpServletRequest(data, contentType);
 
 		val isMultipart = ServletFileUpload.isMultipartContent(request);
