@@ -27,8 +27,6 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpUpgradeHandler;
 import javax.servlet.http.Part;
 import org.apache.commons.fileupload.FileUploadBase;
-import org.eclipse.xtend2.lib.StringConcatenation;
-import org.eclipse.xtext.xbase.lib.Exceptions;
 
 /**
  * @version $Id$
@@ -67,7 +65,7 @@ public class MockHttpServletRequest implements HttpServletRequest {
         int _available = this.in.available();
         return (_available == 0);
       } catch (Throwable _e) {
-        throw Exceptions.sneakyThrow(_e);
+        throw new RuntimeException(_e);
       }
     }
     
@@ -351,7 +349,7 @@ public class MockHttpServletRequest implements HttpServletRequest {
       iLength = (-1);
     } else {
       if ((this.length > Integer.MAX_VALUE)) {
-        StringConcatenation _builder = new StringConcatenation();
+        StringBuilder _builder = new StringBuilder();
         _builder.append("Value \'");
         _builder.append(this.length);
         _builder.append("\' is too large to be converted to int");

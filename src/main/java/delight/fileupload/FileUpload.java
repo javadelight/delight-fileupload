@@ -7,7 +7,6 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.eclipse.xtext.xbase.lib.Exceptions;
 
 @SuppressWarnings("all")
 public class FileUpload {
@@ -23,7 +22,7 @@ public class FileUpload {
       final List<FileItem> iter = upload.parseRequest(request);
       return iter;
     } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
+      throw new RuntimeException(_e);
     }
   }
 }
