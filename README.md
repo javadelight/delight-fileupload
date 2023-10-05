@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/javadelight/delight-fileupload.svg?branch=master)](https://travis-ci.org/javadelight/delight-fileupload)
 
 # delight-fileupload
 

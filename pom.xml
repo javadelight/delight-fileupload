@@ -29,7 +29,6 @@
 		</dependency>
 
 
-
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -130,8 +129,9 @@
 						</goals>
 						<configuration>
 							<tasks>
-								<delete file="${basedir}/META-INF/MANIFEST.MF"/>
-								<copy file="target/classes/META-INF/MANIFEST.MF" tofile="${basedir}/META-INF/MANIFEST.MF"/>
+								<delete file="${basedir}/META-INF/MANIFEST.MF" />
+								<copy file="target/classes/META-INF/MANIFEST.MF"
+									tofile="${basedir}/META-INF/MANIFEST.MF" />
 							</tasks>
 						</configuration>
 					</execution>
@@ -246,9 +246,6 @@
 						</plugin>
 
 
-
-
-
 					</reportPlugins>
 				</configuration>
 			</plugin>
@@ -290,13 +287,11 @@
 
 
 	<distributionManagement>
-		<repository>
-			<id>bintray-javadelight-javadelight</id>
-			<name>javadelight-javadelight</name>
-			<url>https://api.bintray.com/maven/javadelight/javadelight/delight-fileupload/;publish=1</url>
-		</repository>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
 	</distributionManagement>
-
 
 
 	<developers>
@@ -304,14 +299,14 @@
 			<id>mxro</id>
 			<name>Max Rohde</name>
 			<email>noemail@mxro.de</email>
-			<url>http://www.mxro.de/</url>
+			<url>https://www.mxro.de/</url>
 			<roles>
 				<role>architect</role>
 				<role>developer</role>
 			</roles>
 			<timezone>+10</timezone>
 			<organization>pureleap</organization>
-			<organizationUrl>http://www.pureleap.com</organizationUrl>
+			<organizationUrl>https://www.pureleap.com</organizationUrl>
 		</developer>
 	</developers>
 
