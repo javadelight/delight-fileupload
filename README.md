@@ -23,6 +23,16 @@ This artifact is available on [Maven Central](https://search.maven.org/#search%7
 
 [![Maven Central](https://img.shields.io/maven-central/v/org.javadelight/delight-fileupload.svg)](https://search.maven.org/#search%7Cga%7C1%7Cdelight-fileupload)
 
+Please note in order to use this package, the `javax.servlet` dependency needs to be defined in your project as well. Such as:
+
+```xml
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+```
+
 
 ## Usage
 
