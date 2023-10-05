@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<groupId>org.javadelight</groupId>
 	<artifactId>delight-fileupload</artifactId>
-	<version>0.0.5</version>
+	<version>0.0.6</version>
 	<description>A simple wrapper for Apache Commons FileUpload to use it with Netty and other IO servers.</description>
 	<url>https://github.com/javadelight/delight-fileupload</url>
 	<properties>
