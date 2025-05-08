@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<groupId>org.javadelight</groupId>
 	<artifactId>delight-fileupload</artifactId>
-	<version>0.0.7-SNAPSHOT</version>
+	<version>0.0.8</version>
 	<description>A simple wrapper for Apache Commons FileUpload to use it with Netty and other IO servers.</description>
 	<url>https://github.com/javadelight/delight-fileupload</url>
 	<properties>
@@ -57,16 +57,16 @@
 
 
 			<plugin>
-				<groupId>org.sonatype.plugins</groupId>
-				<artifactId>nexus-staging-maven-plugin</artifactId>
-				<version>1.6.7</version>
+				<groupId>org.sonatype.central</groupId>
+				<artifactId>central-publishing-maven-plugin</artifactId>
+				<version>0.7.0</version>
 				<extensions>true</extensions>
 				<configuration>
-					<serverId>ossrh</serverId>
-					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
-					<autoReleaseAfterClose>true</autoReleaseAfterClose>
+					<publishingServerId>central</publishingServerId>
+					<autoPublish>true</autoPublish>
+					<waitUntil>published</waitUntil>
 				</configuration>
-			</plugin>
+			</plugin>	
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -154,27 +154,7 @@
 			</plugin>
 
 
-			<!-- Keep the MANIFEST.MF used by eclipse in sync with the MANIFEST.MF 
-				created by the maven bundle plugin -->
-			<plugin>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<tasks>
-								<delete file="${basedir}/META-INF/MANIFEST.MF" />
-								<copy file="target/classes/META-INF/MANIFEST.MF"
-									tofile="${basedir}/META-INF/MANIFEST.MF" />
-							</tasks>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
+		
 
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
